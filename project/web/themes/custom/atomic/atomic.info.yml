@@ -1,0 +1,20 @@
+name: Atomic
+type: theme
+description: 'A Bootstrap-Tailwind-Powered theme based on Glider.'
+core_version_requirement: ^9 || ^10
+base theme: classy
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  pre_footer: 'Pre Footer'
+  footer: 'Footer'
+
+libraries:
+  - atomic/bootstrap
+  - atomic/global_styles
+  - atomic/font-awesome

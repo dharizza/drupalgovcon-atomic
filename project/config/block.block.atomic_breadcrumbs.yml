@@ -1,0 +1,22 @@
+uuid: 1f0eddb5-3db8-470e-be34-448106022db0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - atomic
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: atomic_breadcrumbs
+theme: atomic
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

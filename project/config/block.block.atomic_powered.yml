@@ -1,0 +1,22 @@
+uuid: 9a253ed1-7f21-4dc5-b6c4-26f5c57efed6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - atomic
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: atomic_powered
+theme: atomic
+region: footer
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

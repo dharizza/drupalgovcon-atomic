@@ -1,0 +1,54 @@
+.prefooter {
+  background-color: $primary;
+}
+
+footer {
+  background-color: $black;
+  color: white;
+
+  .footer-container {
+    text-align: center;
+
+    i {
+      color: $primary;
+    }
+
+    .block-system-branding-block {
+      img {
+        width: 160px;
+      }
+    }
+
+    .logo {
+      width: 205px;
+    }
+
+    @media (min-width: 910px) {
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  ul {
+    &.menu {
+      text-align: center;
+
+      a.nav-link {
+        color: $white;
+
+        &.active {
+          color: $white;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      @media (min-width: 910px) {
+        text-align: left;
+      }
+    }
+  }
+}

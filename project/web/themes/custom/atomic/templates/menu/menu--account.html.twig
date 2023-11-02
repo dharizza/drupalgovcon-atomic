@@ -1,0 +1,80 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see https://twig.symfony.com/doc/1.x/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      {% set ul_classes = [
+        'menu',
+        'menu--account',
+        'navbar-nav',
+        'me-auto',
+        'mb-2',
+        'mb-lg-0',
+      ] %}
+      <ul{{ attributes.addClass(ul_classes) }}>
+    {% else %}
+      <ul class="menu navbar-nav me-auto mb-2 mb-lg-0">
+    {% endif %}
+
+    {% for id, item in items %}
+      {%
+        set classes = [
+          'menu-item',
+          item.is_expanded ? 'menu-item--expanded',
+          item.is_collapsed ? 'menu-item--collapsed',
+          item.in_active_trail ? 'menu-item--active-trail',
+          'nav-item',
+        ]
+      %}
+      {% set link_content %}
+        {% if id == 'user.logout'%}
+          <i class="fa-solid fa-user mr-1"></i>
+        {% endif %}
+        {{ item.title }}
+      {% endset %}
+      <li{{ item.attributes.addClass(classes) }}>
+        {{ link(
+          link_content,
+          item.url,
+          {'class':[
+            'nav-link',
+          ]}
+        ) }}
+        {# {% if loop.last %}
+          <i class="fa-solid fa-user"></i>
+        {% endif %} #}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

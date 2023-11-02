@@ -1,0 +1,10 @@
+@layer base {
+  html,
+  body {
+    @apply min-h-full;
+  }
+}
+
+body {
+  background-color: $white;
+}

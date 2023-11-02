@@ -1,0 +1,22 @@
+uuid: b5dd6f65-d858-4c12-841b-61cfaebcf002
+langcode: en
+status: true
+dependencies:
+  theme:
+    - atomic
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: atomic_secondary_local_tasks
+theme: atomic
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }
